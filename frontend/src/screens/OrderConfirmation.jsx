@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { clearCartItems } from "../slices/cartSlice";
-import { toast } from "react-toastify";
+
 
 const OrderConfirmation = () => {
     const dispatch = useDispatch();
@@ -26,14 +26,14 @@ const OrderConfirmation = () => {
                 if (response.ok) {
                     // ✅ Clear Cart if payment was successful
                     dispatch(clearCartItems());
-                    toast.success("Payment Successful! Your order has been placed.");
+                    alert("Payment Successful! Your order has been placed.");
                     navigate(`/order/${orderId}`); // Redirect to order details
                 } else {
-                    toast.error(data.error || "Payment verification failed.");
+                    alert(data.error || "Payment verification failed.");
                 }
             } catch (error) {
                 console.error("Error verifying payment:", error);
-                toast.error("Payment verification failed.");
+                alert("Payment verification failed.");
             }
         };
 

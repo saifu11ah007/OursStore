@@ -1,3 +1,4 @@
+import React from 'react';
 import { useGetProductDetailsQuery, useCreateReviewMutation } from '../slices/productsApiSlice.js';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';

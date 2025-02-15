@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { useGetMyOrdersQuery } from '../slices/ordersApiSlice.js';
 import {  Button, Container, Row, Col, Card, Table } from 'react-bootstrap';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaTimes } from 'react-icons/fa';
 import '../styles/profilescreen.css';
 
@@ -18,11 +18,7 @@ const UserOrderScreen = () => {
     }
   }, [userInfo]);
 
-  const updateProfile = async ({ _id, name, password }) => {
-    // Placeholder for profile update logic (should be implemented properly)
-    return { _id, name, email: userInfo.email }; // Simulating API response
-  };
-
+ 
 
 
   return (

@@ -63,7 +63,7 @@ const PaymentScreen = () => {
         }
     } catch (error) {
         console.error("Error in Stripe Payment:", error);
-        toast.error("Payment failed!");
+        alert("Payment failed!");
     }
 };
 

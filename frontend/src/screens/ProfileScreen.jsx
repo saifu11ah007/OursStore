@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+
 import { useProfileMutation } from '../slices/usersApiSlice.js';
 import { setCredentials } from '../slices/authSlice.js';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap'; // Correct Bootstrap Import
@@ -27,17 +27,17 @@ const ProfileScreen = () => {
   const submitHandler = async(e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      toast.error('Passwords do not match');
+      alert('Passwords do not match');
       return;
     }
     else{
       try {
         const res=await updateProfile({_id:userInfo._id, name, password}).unwrap();
         dispatch(setCredentials(res));
-        toast.success('Profile updated');
+        alert('Profile updated');
         navigate('/');
       } catch (err) {
-        toast.error(err?.data?.message || err.error);
+        alert(err?.data?.message || err.error);
       }
     }
     console.log('Profile updated');

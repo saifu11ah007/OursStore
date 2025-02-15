@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from '../components/loader.jsx';
 import { useLoginMutation } from "../slices/usersApiSlice.js";
 import { setCredentials } from "../slices/authSlice.js";
-import { toast } from "react-toastify";
+
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -45,7 +45,7 @@ const LoginScreen = () => {
       dispatch(setCredentials({...res, }));
       navigate(redirect);
     } catch (err) {
-      toast.error(err?.data?.message || err.error);
+      alert(err?.data?.message || err.error);
     }
   }
   return (

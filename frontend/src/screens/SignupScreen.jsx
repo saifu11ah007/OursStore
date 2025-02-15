@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from '../components/loader.jsx';
 import { useRegisterMutation } from "../slices/usersApiSlice.js";
 import { setCredentials } from "../slices/authSlice.js";
-import { toast } from "react-toastify";
+
 const SignupScreen = () => {
   const [email, setEmail] = useState('');
   const [name, setname] = useState('');
@@ -51,7 +51,7 @@ const SignupScreen = () => {
         dispatch(setCredentials({ ...res, }));
         navigate(redirect);
       } catch (err) {
-        toast.error(err?.data?.message || err.error);
+        alert(err?.data?.message || err.error);
       }
     }
 
