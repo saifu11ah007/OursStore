@@ -1,0 +1,56 @@
+.hanger-loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.hanger {
+  width: 60px;
+  height: 60px;
+  border-top: 4px solid #007bff; /* Bootstrap Primary Color */
+  border-left: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  position: relative;
+}
+
+.hanger::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 10px;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 3px solid #007bff;
+  border-radius: 10px 10px 0 0;
+}
+
+.hanger::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 3px solid #007bff;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+}
+
+.text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #007bff;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

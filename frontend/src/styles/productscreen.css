@@ -1,0 +1,18 @@
+/* Improve review rating styling */
+.text-warning {
+  color: #ffc107 !important; /* Adjust Bootstrap warning color */
+}
+
+.list-group-item {
+  background-color: transparent !important;
+  border-bottom: 1px solid #ddd;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+.review-rating {
+  font-size: 1.2rem;
+  color: #f8b400; /* Customize rating star color */
+}

@@ -1,0 +1,174 @@
+/* Make the entire screen act as the card */
+.checkout-container {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to right, #ffefba, #ffffff); /* Elegant warm gradient */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Inter', sans-serif; /* Clean and modern font */
+}
+
+/* Header */
+.checkout-header {
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Progress Steps */
+.checkout-progress {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #34495e;
+}
+
+.checkout-current-step {
+    color: #e67e22; /* Nice orange accent */
+    font-weight: bold;
+}
+
+/* Main Layout */
+.checkout-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: calc(100vh - 100px); /* Fill remaining space */
+    padding: 20px;
+    gap: 25px;
+    overflow-y: auto;
+}
+
+/* Payment Section */
+.checkout-payment-section {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px); /* Soft blur effect */
+}
+
+/* Payment Icons */
+.checkout-payment-icons img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+/* Input Fields */
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #444;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #d1d1d1;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Two-column form layout */
+.checkout-form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.checkout-form-col {
+    width: 48%;
+}
+
+/* Save Card Checkbox */
+.checkout-save-card {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* Order Summary Section */
+.checkout-summary-section {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+/* Order Items */
+.checkout-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkout-item img {
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+    border-radius: 8px;
+}
+
+/* Summary */
+.checkout-summary-details p {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Place Order Button */
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.checkout-btn:hover {
+    background: #d35400;
+}
+
+/* Footer Text */
+.checkout-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Allow scrolling if needed */
+.checkout-content {
+    overflow-y: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .checkout-content {
+        flex-direction: column;
+    }
+    .checkout-payment-section, .checkout-summary-section {
+        width: 100%;
+    }
+}

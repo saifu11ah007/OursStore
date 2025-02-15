@@ -1,0 +1,136 @@
+.products {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f4f8, #e8edf2); /* Soft neutral gradient */
+}
+
+.product-card {
+  position: relative;
+  width: 320px;
+  text-align: center;
+  border: 1px solid #e0e0e0; /* Neutral border */
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.product-image .default {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product-image .hover {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.product-card:hover .default {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.product-card:hover .hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product-actions {
+  display: none;
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.product-card:hover .product-actions {
+  display: flex;
+}
+
+.product-actions button {
+  padding: 10px 20px;
+  border: none;
+  background: #3498db; /* Soft modern blue */
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  font-size: 0.9em;
+}
+
+.product-actions button:hover {
+  background: #f39c12; /* Softer yellow */
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.product-title {
+  font-family: "Poppins", sans-serif; /* Modern sans-serif font */
+  font-weight: 600;
+  font-size: 1.3em;
+  margin: 15px 10px;
+  color: #2c3e50; /* Dark gray for elegance */
+  text-transform: capitalize;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.product-title:hover {
+  color: #f39c12; /* Subtle hover effect with yellow */
+}
+
+p {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #3498db; /* Same soft blue for price */
+  margin: 10px 0;
+}
+
+p::before {
+  margin-right: 3px;
+}
