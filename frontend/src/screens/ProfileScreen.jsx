@@ -16,7 +16,7 @@ const ProfileScreen = () => {
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const { userInfo } = useSelector((state) => state.auth);
-  const [updateProfile,{isLoading:loadingUpdateProfile}]=useProfileMutation();
+  const [updateProfile]=useProfileMutation();
   useEffect(() => {
     if (userInfo) {
       setName(userInfo?.name || '');

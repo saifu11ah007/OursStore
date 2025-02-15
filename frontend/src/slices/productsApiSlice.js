@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
 import {PRODUCT_URL} from '../constants.js';
 import { apiSlice } from "./apiSlices.js";
 

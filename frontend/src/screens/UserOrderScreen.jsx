@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { setCredentials } from '../slices/authSlice.js';
 import { useGetMyOrdersQuery } from '../slices/ordersApiSlice.js';
-import { Form, Button, Container, Row, Col, Card, Table } from 'react-bootstrap';
+import {  Button, Container, Row, Col, Card, Table } from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 import { FaTimes } from 'react-icons/fa';
 import '../styles/profilescreen.css';
 
 const UserOrderScreen = () => {
   const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { userInfo } = useSelector((state) => state.auth);
   const { data: orders, isLoading, error } = useGetMyOrdersQuery(); // Fixed destructuring
 
@@ -29,21 +23,7 @@ const UserOrderScreen = () => {
     return { _id, name, email: userInfo.email }; // Simulating API response
   };
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    if (password !== confirmPassword) {
-      toast.error('Passwords do not match');
-      return;
-    }
-    try {
-      const res = await updateProfile({ _id: userInfo._id, name, password });
-      dispatch(setCredentials(res));
-      toast.success('Profile updated');
-      navigate('/');
-    } catch (err) {
-      toast.error(err?.message || 'Update failed');
-    }
-  };
+
 
   return (
     <Container className="mt-5">

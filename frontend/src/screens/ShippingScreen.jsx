@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const ShippingScreen = () => {
   const {userInfo }=useSelector((state)=>state.auth);
   const cart = useSelector((state) => state.cart);
-  const { cartItems, itemPrice, shippingPrice, taxPrice, totalPrice } = cart;
+  const { cartItems, itemPrice, shippingPrice, totalPrice } = cart;
   const {shippingAddress}=cart; 
   
   const [address, setAddress] = useState(shippingAddress?.address || '');

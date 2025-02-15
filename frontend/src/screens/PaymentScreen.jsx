@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import "../styles/PaymentScreen.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice.js";
-import { clearCartItems } from "../slices/cartSlice.js";
 import { stripePromise } from "../utils/stripe";
 
 const PaymentScreen = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+
   
   const cart = useSelector((state) => state.cart);
-  const { shippingAddress, cartItems, itemPrice, shippingPrice, taxPrice, totalPrice } = cart;
-  const [createOrder, { isLoading, error }] = useCreateOrderMutation();
+  const { shippingAddress, itemPrice, shippingPrice, taxPrice, totalPrice } = cart;
+  const [createOrder] = useCreateOrderMutation();
 
   useEffect(() => {
     if (!shippingAddress || Object.keys(shippingAddress).length === 0) {
@@ -74,7 +73,7 @@ const PaymentScreen = () => {
   return (
     <div className="checkout-container">
       <div className="checkout-header">
-        <a href="#">Back to shop</a>
+        <a href="/">Back to shop</a>
         <span className="checkout-logo">🛍️</span>
       </div>
       <div className="checkout-progress">
