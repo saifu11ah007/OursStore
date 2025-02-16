@@ -22,8 +22,8 @@ const Products = () => {
 
   const getFullImagePath = (path) => {
     if (!path) {
-      console.warn('Image path is undefined or null'); // Log to identify problematic products
-      return '/assets/default.jpg'; // Fallback image
+      alert('Image path is undefined or null'); // Log to identify problematic products
+      return '/assets/mission.png'; // Fallback image
     }
     return path.startsWith('/assets/') ? `https://ours-store-backend.vercel.app${path}` : path;
   };
