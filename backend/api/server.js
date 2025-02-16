@@ -14,23 +14,27 @@ import paymentRoutes from './routes/paymentRoutes.js';
 dotenv.config();
 connectDB();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = new URL(import.meta.url).pathname;
+const __dirname = path.dirname(__filename); // Get the directory name of the current module
+
 const app = express();
+console.log('Directory:', __dirname); // Log the directory to verify
 
 // Body Parser
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+
+// CORS
 app.use(
   cors({
     origin: 'https://ours-store.vercel.app/',
   })
 );
 
-// Serve static files
+// Serve static files from the "api/assets" directory
+app.use('/assets', express.static(path.join(__dirname, '/assets')));
 
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
 // Define routes
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
@@ -46,6 +50,10 @@ app.use((err, req, res, next) => {
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`);
+});
+
+app.get('/', (req, res) => {
+  res.send('Backend is working');
 });
 
 export default app;

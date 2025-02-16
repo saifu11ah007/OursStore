@@ -1,22 +1,24 @@
 import express from 'express';
-import productRoutes from './routes/productRoutes.js';
-import orderRoutes from './routes/orderRoutes.js';
-import userRoutes from './routes/userRoutes.js';
-import paymentRoutes from './routes/paymentRoutes.js';
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Static file serving for images
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
-// Define your routes
-app.use('/api/products', productRoutes);
-app.use('/api/orders', orderRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/payment', paymentRoutes);
-router.get('/', (req, res) => {
-  res.json({ message: 'Product route works!' });
+
+// Other routes like products, etc.
+app.use('/api/products', productRoutes); // assuming productRoutes is properly set up
+
+// Catch-all for all other routes (API)
+app.get('*', (req, res) => {
+  res.send('API is working');
 });
-// Export as serverless function for Vercel
-export default app;
+
+// Server listen setup
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
