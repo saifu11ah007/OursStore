@@ -28,7 +28,10 @@ app.use(express.urlencoded({ extended: true }));
 // CORS
 app.use(
   cors({
-    origin: 'https://ours-store.vercel.app/',
+    origin: 'https://ours-store.vercel.app',  // Replace with your frontend's domain
+methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Specify the methods if needed
+credentials: true,
+allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
 
