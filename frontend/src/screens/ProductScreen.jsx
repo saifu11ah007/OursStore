@@ -83,7 +83,6 @@ export default function ProductScreen() {
   return isLoading ? (
     <Loader />
   ) : error ? (
-    alert({error.data.message || error.error});
     <h3 className="product-title">{error.data.message || error.error}</h3>
   ) : (
     <section className="container my-5">
