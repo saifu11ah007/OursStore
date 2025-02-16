@@ -33,7 +33,7 @@ const HomeScreen = () => {
               <img src={getFullImagePath(product.image)} alt={product.name} className="default" />
               <img src={getFullImagePath(product.hoverImage)} alt={`${product.name} Hover`} className="hover" />
               <div className="product-actions">
-                <Link to={`/product/${product._id}`}><button>👁 View</button></Link>
+                <Link to={`/products/${product._id}`}><button>👁 View</button></Link>
                 <button>🛒 Add to Cart</button>
                 <button>💳 Buy Now</button>
               </div>
