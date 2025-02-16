@@ -15,6 +15,8 @@ app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/payment', paymentRoutes);
-
+router.get('/', (req, res) => {
+  res.json({ message: 'Product route works!' });
+});
 // Export as serverless function for Vercel
 export default app;

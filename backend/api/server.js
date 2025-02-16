@@ -29,6 +29,7 @@ app.use(
 );
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
+
 // Routes
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);

@@ -14,6 +14,7 @@ const HomeScreen = () => {
 
   const getFullImagePath = (path) => {
     return path.startsWith('/assets/') ? `https://ours-store-backend.vercel.app${path}` : path;
+    
   };
 
   const indexOfLastProduct = currentPage * productsPerPage;

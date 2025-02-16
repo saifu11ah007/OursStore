@@ -11,20 +11,23 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get('https://ours-store-backend.vercel.app/api/products'); // Fetch data from the backend
+        const { data } = await axios.get('https://ours-store-backend.vercel.app/api/products');
+        console.log(data); // Log the response to check the image paths
         setProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
+    
     fetchProducts();
   }, []);
 
   const getFullImagePath = (path) => {
     if (!path) {
-      alert('Image path is undefined or null'); // Log to identify problematic products
+      console.warn('Image path is undefined or null');
       return '/assets/mission.png'; // Fallback image
     }
+    console.log('Image Path:', path);  // Log the image path
     return path.startsWith('/assets/') ? `https://ours-store-backend.vercel.app${path}` : path;
   };
   
