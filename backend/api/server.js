@@ -27,6 +27,7 @@ app.use(
     origin: 'https://ours-store.vercel.app/',
   })
 );
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Routes
 app.use('/api/products', productRoutes);

@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://ours-store-backend.vercel.app",
+  "proxy": "https://ours-store-backend.vercel.app/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
     "@stripe/react-stripe-js": "^3.1.1",

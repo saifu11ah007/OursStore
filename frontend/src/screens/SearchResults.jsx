@@ -20,7 +20,9 @@ const SearchResults = () => {
   useEffect(() => {
     const fetchSearchResults = async () => {
       try {
-        const { data } = await axios.get(`/api/products/search/${keyword}`);
+        const { data } = await axios.get(`https://ours-store-backend.vercel.app/api/products/search/${keyword}`);
+
+
         setProducts(data);
       } catch (err) {
         setError('No products found');
