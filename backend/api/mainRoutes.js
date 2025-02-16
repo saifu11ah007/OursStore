@@ -1,13 +1,12 @@
-
-
 import express from 'express';
-import productRoutes from '../api/routes/productRoutes.js';
-import userRoutes from '../api/routes/userRoutes.js';
-import orderRoutes from '../api/routes/orderRoutes.js';
-import paymentRoutes from '../api/routes/paymentRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
+
 const app = express();
 
-// Body parser middleware
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

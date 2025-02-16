@@ -3,13 +3,13 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import connectDB from '../api/config/db.js';
+import connectDB from './config/db.js';
 
 import cookieParser from 'cookie-parser';
-import productRoutes from '../api/routes/productRoutes.js';
-import userRoutes from '../api/routes/userRoutes.js';
-import orderRoutes from '../api/routes/orderRoutes.js';
-import paymentRoutes from '../api/routes/paymentRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -38,6 +38,10 @@ app.use('/api/payment', paymentRoutes);
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: err.message });
+});
+const port = process.env.PORT || 5000; // Change to another port
+app.listen(port, () => {
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`);
 });
 
 // Export as serverless function
