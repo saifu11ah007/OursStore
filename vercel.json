@@ -1,28 +1,15 @@
-
 {
   "version": 2,
   "builds": [
     {
-      "src": "backend/api/**/*.js",
+      "src": "backend/api/mainRoutes.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/products/(.*)",
-      "dest": "/backend/api/products/index.js"
-    },
-    {
-      "src": "/api/users/(.*)",
-      "dest": "/backend/api/users/index.js"
-    },
-    {
-      "src": "/api/orders/(.*)",
-      "dest": "/backend/api/orders/index.js"
-    },
-    {
-      "src": "/api/payment/(.*)",
-      "dest": "/backend/api/payment/index.js"
+      "src": "/api/(.*)",
+      "dest": "/backend/api/mainRoutes.js"
     }
   ]
 }
