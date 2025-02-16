@@ -5,15 +5,15 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/api/server.js",
-    "server": "nodemon backend/api/server.js",
-    "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/seeder.js",
-    "data:destroy": "node backend/seeder.js -d",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+  "start": "node backend/api/server.js", 
+  "server": "nodemon backend/api/server.js",
+  "client": "npm start --prefix frontend",
+  "dev": "concurrently \"npm run server\" \"npm run client\"",
+  "data:import": "node backend/seeder.js",
+  "data:destroy": "node backend/seeder.js -d",
+  "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+},
 
-  },
   "author": "Saif",
   "license": "ISC",
   "dependencies": {

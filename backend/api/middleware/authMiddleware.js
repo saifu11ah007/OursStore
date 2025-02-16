@@ -2,26 +2,25 @@ import jwt from 'jsonwebtoken';
 import asyncHandler from './asyncHandler.js';
 import User from '../models/userModel.js';
 
- const protect=asyncHandler(async(req, res, next)=>{
+const protect = asyncHandler(async (req, res, next) => {
   let token;
-  //read token
-  token=req.cookies.jwt;
-  if(token){
-    try{
-      const decoded=jwt.verify(token, process.env.JWT_SECRET);
-      req.user=await User.findById(decoded.userId).select('-password');
+  token = req.cookies.jwt;
+  
+  if (token) {
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = await User.findById(decoded.userId).select('-password');
       next();
-    }catch(error){
+    } catch (error) {
       res.status(401);
-      throw new Error(' not authorized, token fail');
+      throw new Error('Not authorized, token failed');
     }
-
-  }else{
+  } else {
     res.status(401);
-    throw new Error(' not authorized');
+    throw new Error('Not authorized');
   }
-
 });
+
 // admin middleware
 const admin=(req, res, next)=>{
   if ( req.user && req.user.isAdmin){
