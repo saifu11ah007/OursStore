@@ -12,6 +12,7 @@ const Products = () => {
     const fetchProducts = async () => {
       try {
         const { data } = await axios.get('https://ours-store-backend.vercel.app/api/products');
+
         console.log(data); // Log the response to check the image paths
         setProducts(data);
       } catch (error) {
@@ -27,7 +28,9 @@ const Products = () => {
       console.warn('Image path is undefined or null');
       return '/assets/mission.png'; // Fallback image
     }
-    console.log('Image Path:', path);  // Log the image path
+    console.log('Image Path:', path); 
+    console.log("Image Path:", getFullImagePath(product.image));
+ // Log the image path
     return path.startsWith('/assets/') ? `https://ours-store-backend.vercel.app${path}` : path;
   };
   

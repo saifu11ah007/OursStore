@@ -27,10 +27,11 @@ app.use(
     origin: 'https://ours-store.vercel.app/',
   })
 );
+
+// Serve static files
+
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
-
-
-// Routes
+// Define routes
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
@@ -41,10 +42,10 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: err.message });
 });
-const port = process.env.PORT || 5000; // Change to another port
+
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`);
 });
 
-// Export as serverless function
 export default app;

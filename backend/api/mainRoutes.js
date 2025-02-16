@@ -9,7 +9,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 // Define your routes
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
