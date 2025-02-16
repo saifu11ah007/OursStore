@@ -3,12 +3,13 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import connectDB from './config/db.js';
-import productRoutes from './routes/productRoutes.js';
-import userRoutes from './routes/userRoutes.js';
+import connectDB from '../api/config/db.js';
+
 import cookieParser from 'cookie-parser';
-import orderRoutes from './routes/orderRoutes.js';
-import paymentRoutes from './routes/paymentRoutes.js';
+import productRoutes from '../api/routes/productRoutes.js';
+import userRoutes from '../api/routes/userRoutes.js';
+import orderRoutes from '../api/routes/orderRoutes.js';
+import paymentRoutes from '../api/routes/paymentRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -23,7 +24,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: '*',
   })
 );
 
