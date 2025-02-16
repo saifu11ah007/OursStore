@@ -15,7 +15,7 @@ const OrderConfirmation = () => {
             const orderId = searchParams.get("orderId");
 
             try {
-                const response = await fetch("http://localhost:5000/api/payment/update-order", {
+                const response = await fetch("https://ours-store-backend.vercel.app/api/payment/update-order", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ orderId, sessionId }),

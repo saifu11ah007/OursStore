@@ -39,7 +39,7 @@ const PaymentScreen = () => {
         const orderId = orderResponse._id; // Get order ID from response
 
         // Now proceed to Stripe payment
-        const response = await fetch("http://localhost:5000/api/payment/create-checkout-session", {
+        const response = await fetch("https://ours-store-backend.vercel.app/api/payment/create-checkout-session", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ 

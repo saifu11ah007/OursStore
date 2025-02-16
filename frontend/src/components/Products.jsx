@@ -11,7 +11,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/products'); // Fetch data from the backend
+        const { data } = await axios.get('https://ours-store-backend.vercel.app/api/products'); // Fetch data from the backend
         setProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -25,7 +25,7 @@ const Products = () => {
       console.warn('Image path is undefined or null'); // Log to identify problematic products
       return '/assets/default.jpg'; // Fallback image
     }
-    return path.startsWith('/assets/') ? `http://localhost:5000${path}` : path;
+    return path.startsWith('/assets/') ? `https://ours-store-backend.vercel.app${path}` : path;
   };
   
   return (

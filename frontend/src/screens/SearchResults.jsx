@@ -14,7 +14,7 @@ const SearchResults = () => {
   const [error, setError] = useState('');
 
   const getFullImagePath = (path) => {
-    return path.startsWith('/assets/') ? `http://localhost:5000${path}` : path;
+    return path.startsWith('/assets/') ? `https://ours-store-backend.vercel.app${path}` : path;
   };
 
   useEffect(() => {
