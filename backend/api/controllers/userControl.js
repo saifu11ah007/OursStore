@@ -108,7 +108,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // @access PRIV
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find({});
-  res.status(200).json(users);
+  res.json(users);
 });
 // @desc Profile Users 
 // @route   DELETE /api/users/
@@ -132,8 +132,8 @@ const deleteUser = asyncHandler(async (req, res) => {
 // @route   GET /api/users/:id
 // @access PRIV
 const getUserByID = asyncHandler(async (req, res) => {
-  const users = await User.findById(req.params.id).select('-password');
-  if (user) { res.status(200).json(users); }
+  const user = await User.findById(req.params.id).select('-password');
+  if (user) { res.status(200).json(user); }
   else {
     res.status(404);
     throw new Error('Not Found');

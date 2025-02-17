@@ -1,6 +1,7 @@
 import express from 'express';
 import asyncHandler from '../middleware/asyncHandler.js'; 
 import { authUsers, registerUser, logoutUser, getUserProfile,updateUserProfile, getUsers, deleteUser, getUserByID, updateUser } from '../controllers/userControl.js';
+import User from '../models/userModel.js'; 
 import {protect, admin} from '../middleware/authMiddleware.js';
 
 const router=express.Router();
