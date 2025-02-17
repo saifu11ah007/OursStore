@@ -7,22 +7,23 @@ import generateToken from '../utils/generateToken.js';
 // @access Public
 const authUsers = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-
   const user = await User.findOne({ email });
+
   if (user && (await user.matchPassword(password))) {
-    generateToken(res, user._id);
+    const token = generateToken(res, user._id);  // ✅ Capture returned token
     res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      token // ✅ Include token in the response
     });
-  }
-  else {
+  } else {
     res.status(401);
-    throw new Error('Invalid Email or Password')
+    throw new Error('Invalid Email or Password');
   }
 });
+
 // @desc Register Users 
 // @route   POST /api/users/
 // @access Public
@@ -57,10 +58,10 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.cookie('jwt', '', {
     httpOnly: true,
     expires: new Date(0),
-
   });
-  response: res.status(200).json({ message: 'logout success' });
+  res.status(200).json({ message: 'Logout successful' }); // ✅ Fixed
 });
+
 // @desc Profile Users 
 // @route   GET /api/users/profile
 // @access Public
@@ -147,7 +148,7 @@ const updateUser = asyncHandler(async (req, res) => {
   if (user) {
     user.name= req.body.name || user.name;
     user.email= req.body.email || user.email;
-    user.isAdmin= boolean(req.body.isAdmin);
+    user.isAdmin = Boolean(req.body.isAdmin); // ✅ Corrected
 
     const updatedUser=await user.save();
     res.status(200).json({

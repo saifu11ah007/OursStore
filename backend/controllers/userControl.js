@@ -137,7 +137,6 @@ const getUserByID = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error('Not Found');
   }
-
 });
 // @desc Profile Users 
 // @route   DELETE /api/users/:id
