@@ -5,10 +5,10 @@ import User from '../models/userModel.js';
 import {protect, admin} from '../middleware/authMiddleware.js';
 
 const router=express.Router();
-router.get('/api/users', async (req, res) => {
-  const users = await User.find({});
-  res.json(users);
-});
+// router.get('/api/users', async (req, res) => {
+//   const users = await User.find({});
+//   res.json(users);
+// });
 
 router.route('/').post(registerUser).get(getUsers);
 router.post('/logout',logoutUser);
