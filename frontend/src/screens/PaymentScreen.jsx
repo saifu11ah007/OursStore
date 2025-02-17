@@ -48,6 +48,7 @@ const PaymentScreen = () => {
                 taxPrice,      // ✅ Include tax
                 shippingPrice, // ✅ Include shipping
             }),
+            credentials: "include", 
         });
 
         if (!response.ok) {

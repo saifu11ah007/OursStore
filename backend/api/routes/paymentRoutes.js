@@ -45,8 +45,8 @@ router.post("/create-checkout-session", async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `http://localhost:3000/payment-success?orderId=${orderId}&session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: "http://localhost:3000/cart",
+      success_url: `https://ours-store.vercel.app/payment-success?orderId=${orderId}&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: "https://ours-store.vercel.app/cart",
     });
 
     res.json({ id: session.id });
